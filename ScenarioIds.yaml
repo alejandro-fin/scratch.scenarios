@@ -1,0 +1,5 @@
+scenario_ids:
+  onboarding.test_create_minimalist_project: 8001
+  onboarding.test_repo_setup: 8002
+
+  
