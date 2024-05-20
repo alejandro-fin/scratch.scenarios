@@ -1,0 +1,55 @@
+[local_development]
+
+# The 'root' setting determines the folder in the local machine under which projects should be cloned
+# for development purposes.
+# Thus, the root folder would contain a project sub-folder, and the project sub-folder would contain the clones
+# for repos belonging to that projtect.
+#
+dev_root                            = "$SCENARIOS_REPO/8002/ACTUALS@latest/bundled_repos_local"
+
+[operate]
+
+# The 'root' setting determines the folder in the local machine under which projects should be cloned
+# for operate purposes.
+# Thus, the root folder would contain a project sub-folder, and the project sub-folder would contain the clones
+# for repos belonging to that projtect.
+#
+operate_root                        = ""
+
+[projects]
+
+    [projects.scenario_8002]
+
+    repos                           = [ "scenario_8002.svc",         "scenario_8002.test",        "scenario_8002.scenarios", 
+                                        "scenario_8002.ops",         "scenario_8002.docs"]
+    ops_repo                        = "scenario_8002.ops"
+    repo_bundle_class               = "scenario_8002_ops.onboarding.scenario_8002_repo_bundle.Scenario_8002_RepoBundle"
+
+[git]
+
+
+github_organization                 = "testrobot-ccl"
+
+working_branch                      = "testrobot"
+bc_path                             = "/mnt/c/Program Files/Beyond Compare 4/BCompare.exe"
+win_cred_path                       = "/mnt/c/Program Files (x86)/Git Credential Manager/git-credential-manager.exe"
+
+# Normally, this setting should not be included in profile, or at worst it should be set to "false".
+# Here we set it to "True" only because it this is a profile for a test robot that manipulates discardable GitHub repos.
+# The test robot needs the access token to be included in its local git configuration's remote URL, since the test
+# robot is not known to Windows credentials. Otherwise the test robot wouldn't be able to push to the remote. 
+# That is why this setting is activated in this profile.
+#
+ok_to_display_token                 = true
+
+# Normally, this setting should not be included in profile, or at worst is should be set to false. 
+# However, for profiles used for testing, it can be set to true if the remote repos are expected to live in
+# the file system instead of in GitHub.
+#
+remote_is_local                     = false
+
+    [git.user]
+
+    name                            = "testrobot-ccl"
+    email                           = "testrobot@chateauclaudia-labs.com"
+
